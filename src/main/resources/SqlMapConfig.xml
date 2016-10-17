@@ -10,6 +10,7 @@
      <typeAlias type="com.gych.xtgl.bean.Param" alias="param"/>
      <typeAlias type="com.gych.xtgl.bean.TreeNode" alias="treeNode"/>
      <typeAlias type="com.gych.xtgl.bean.Unit" alias="unit"/>
+     <typeAlias type="com.gych.sjjs.bean.Hjch" alias="hjch"/>
 
  
   </typeAliases>
@@ -40,6 +41,7 @@
   </environments>
 	<mappers>
      <mapper resource="com/gych/xtgl/config/xtgl.xml"/>
+     <mapper resource="com/gych/sjjs/config/sjjs.xml"/>
 
   </mappers>
 </configuration>

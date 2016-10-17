@@ -13,6 +13,8 @@ $(function() {
 		title:'部门管理',
 		imgSrc:'../../images/bmgl.png',
 		renderTo:'left_menu1',
+		
+		
 		href:'./bmgl.jsp'
 	});
 

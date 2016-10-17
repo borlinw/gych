@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "/xsd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gych.sjjs">
+	
+	<select id="selectHjchList" parameterType="hjch" resultType="hjch">
+		select * from (
+		select m.*,rownum rn from (
+			select id,whnf,whbh,hjdw,lxdh,chxmmc,jchxmszd,scdw,wcsj,zljcysdw,jcyssj,hjchcgfbhmlsl,hjchcgfbhmlxxnr from HJCH t
+		where 1=1
+		<if test="chxmmc != null and  chxmmc != ''">
+		and chxmmc like '%'||#{chxmmc}||'%'
+		</if>
+		<if test="hjdw != null and  hjdw != ''">
+		and hjdw like '%'||#{hjdw}||'%'
+		</if>
+		<if test="kssj != null and  kssj  != ''">
+		and wcsj>=  #{kssj}
+		</if>
+		<if test="jssj != null and  jssj  != ''">
+		and #{jssj}>=  wcsj
+		</if>
+		)  m
+			where <![CDATA[rownum<=(#{page} * #{rows})]]>
+		) 
+			where RN>((#{page} - 1) * #{rows})
+		order by wcsj
+	</select>
+	<select id="selectHjchListCount" parameterType="hjch" resultType="int">
+		select count(*) from HJCH 
+		where 1=1
+		<if test="chxmmc != null and  chxmmc != ''">
+		and chxmmc like '%'||#{chxmmc}||'%'
+		</if>
+		<if test="hjdw != null and  hjdw != ''">
+		and hjdw like '%'||#{hjdw}||'%'
+		</if>
+		<if test="kssj != null and  kssj  != ''">
+		and wcsj>=  #{kssj}
+		</if>
+		<if test="jssj != null and  jssj  != ''">
+		and #{jssj}>=  wcsj
+		</if>
+	</select>
+	
+	<insert id="insertYh" parameterType="master">
+		insert into xtgl_master (id,truename,password,tel,phone,unit,name,sex,roleid,czsj) 
+		values (SYS_GUID(),#{truename},#{password}
+		,#{tel},#{phone},#{unit},#{name},#{sex},#{roleid},SYSDATE)
+	</insert>
+	
+	<delete id="deleteYh" parameterType="String">
+		delete from xtgl_master where id=#{id}
+	</delete>
+	<update id="updateYh" parameterType="master">
+		update xtgl_master set truename=#{truename}
+		<if test="name != null and  name != ''">
+			 ,name =#{name}
+		</if>
+		<if test="password != null and  password != ''">
+			 ,password=#{password} 
+		</if>
+		<if test="sex != null and  sex != ''">
+			 ,sex=#{sex} 
+		</if>
+		<if test="tel != null and  tel != ''">
+			 ,tel=#{tel} 
+		</if>
+		<if test="phone != null and  phone != ''">
+			 ,phone=#{phone} 
+		</if>
+		<if test="idcard != null and  idcard != ''">
+			 ,idcard=#{idcard} 
+		</if>
+		<if test="roleid != null and  roleid != ''">
+			 ,roleid=#{roleid}
+		</if>
+		<if test="unit != null and  unit != ''">
+			 ,unit=#{unit} 
+		</if>
+		where id=#{id}
+	</update>
+	
+</mapper>

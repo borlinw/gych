@@ -4,28 +4,28 @@ $(function() {
 		title:'基础测绘',
 		imgSrc:'../../images/zcwj.png',
 		renderTo:'left_menu1',
-		href:'./zcwj.jsp'
+		href:'./jcch.jsp'
 	});
 	createMenu('LeftMenu',{
 		id:'menu_010102',
 		title:'汇交测绘',
 		imgSrc:'../../images/zcwj.png',
 		renderTo:'left_menu1',
-		href:'./zcwjNoEdit.jsp'
+		href:'./hjch.jsp'
 	});
 	createMenu('LeftMenu',{
 		id:'menu_010103',
 		title:'成果备案',
 		imgSrc:'../../images/qtwj.png',
 		renderTo:'left_menu1',
-		href:'./bgda.jsp'
+		href:'./cgba.jsp'
 	});
 	createMenu('LeftMenu',{
 		id:'menu_010104',
 		title:'文件共享',
 		imgSrc:'../../images/qtwj.png',
 		renderTo:'left_menu1',
-		href:'./bgdaNoEdit.jsp'
+		href:'./wjgx.jsp'
 	});
 	
 	menuQx();
