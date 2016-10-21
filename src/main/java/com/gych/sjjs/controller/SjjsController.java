@@ -96,14 +96,37 @@ public class SjjsController extends BaseActionSupport{
 		}
 	}
 	public void hjchDownDoc(){
-		//HashMap map=sjjsServer.selectHjchById2(hjch);
-		HashMap map=new HashMap();
+		HashMap map=sjjsServer.selectHjchById2(hjch);
+		//HashMap map=new HashMap();
 		//System.out.println(map.get("A1"));
-		map.put("a1","16");
-		map.put("a2", "1");
-		map.put("a3", "测试2");
-		xmlName="北京市交通委员会路政局行政许可不予受理通知书2.xml";
-		//xmlName="广元市测绘成果汇交凭证.xml";
+		map.put("a1",map.get("A1"));
+		map.put("a2",map.get("A2"));
+		map.put("a3",map.get("A3"));
+		map.put("a4",map.get("A4"));
+		map.put("a5",map.get("A5"));
+		map.put("a6",map.get("A6"));
+		map.put("a7",map.get("A7"));
+		map.put("a8",map.get("A8"));
+		map.put("a9",map.get("A9"));
+		map.put("a10",map.get("A10"));
+		map.put("a11",map.get("A11"));
+		map.put("a12",map.get("A12"));
+		map.put("a13",map.get("A13"));
+		map.put("a14",map.get("A14"));
+		map.put("a15",map.get("A15"));
+		map.put("a16",map.get("A16"));
+		map.put("a17",map.get("A17"));
+		map.put("a18",map.get("A18"));
+		map.put("a19",map.get("A19"));
+		map.put("a20",map.get("A20"));
+		map.put("a21",map.get("A21"));
+		map.put("a22",map.get("A22"));
+		map.put("a23",map.get("A23"));
+		map.put("a24",map.get("A24"));
+		map.put("a25",map.get("A25"));
+		map.put("a26",map.get("A26"));
+		map.put("a27",map.get("A27"));
+		xmlName="广元市测绘成果汇交凭证.xml";
 		WordOperation wo=new WordOperation();
 		wo.createDoc(map,xmlName,getresponse());
 	}
