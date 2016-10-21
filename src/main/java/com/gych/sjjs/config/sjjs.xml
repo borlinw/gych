@@ -72,10 +72,13 @@
 	
 	<select id="selectHjchById2" parameterType="hjch" resultType="hashmap">
 
-			SELECT ID A0,WHNF A1,WHBH A2,HJDW A3,LXDH A4,CHXMMC A5,CHXMSZD A6,SCDW A7,WCSJ A8,
-			ZLJCYSDW A9,JCYSSJ A10,
-  				   HJCHCGFBHMLSL A11,HJCHCGFBHMLXXNR A12,A1 A13,A2 A14,A3 A15,A4 A16,A5 A17,B1 A18,
-  				   B2 A19,B3 A20,B4 A21,B5 A22,C1 A23,C2 A24,C3 A25,C4 A26,C5 A27,
+			SELECT ID A0,WHNF||' ' A1,WHBH||' ' A2,HJDW||' ' A3,LXDH||' ' A4,CHXMMC||' ' A5,CHXMSZD||' ' A6,
+			SCDW||' ' A7,WCSJ||' ' A8,
+			ZLJCYSDW||' ' A9,JCYSSJ||' ' A10,
+  				   HJCHCGFBHMLSL||' ' A11,replace(HJCHCGFBHMLXXNR,'\r\n','\n')||' ' A12,A1||' ' A13,A2||' ' A14,A3||' ' A15,
+  				   A4||' ' A16,A5||' ' A17,B1||' ' A18,
+  				   B2||' ' A19,B3||' ' A20,B4||' ' A21,B5||' ' A22,C1||' ' A23,C2||' ' A24,C3||' ' A25,
+  				   C4||' ' A26,C5||' ' A27,
   				   HJRQM,JSRQM,HJJSN,HJJSY,HJJSR,QZN,QZY,QZR
 			 FROM HJCH T
 		     WHERE ID=#{id}

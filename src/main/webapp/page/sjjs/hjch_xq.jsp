@@ -236,8 +236,9 @@ $(function(){
 							<td style="text-align: left;height: 200px;vertical-align: top;"
 							colspan="5">
 								汇交测绘成果副本或目录详细内容：<br/>
-								<input id="hjchcgfbhmlxxnr" name="hjchcgfbhmlxxnr" type="textarea" / style="width: 99%;height: 88%">&nbsp;
-							</td>
+						<textarea name="hjchcgfbhmlxxnr" rows="20" cols="20" id="hjchcgfbhmlxxnr"
+						style="border-color: Black; border-width: 1px; border-style: Solid; height: 88%; width: 99%; overflow: auto"></textarea>
+															</td>
 							
 						</tr>
 					</table>

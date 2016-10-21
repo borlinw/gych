@@ -110,7 +110,7 @@ public class SjjsController extends BaseActionSupport{
 		map.put("a9",map.get("A9"));
 		map.put("a10",map.get("A10"));
 		map.put("a11",map.get("A11"));
-		map.put("a12",map.get("A12"));
+		map.put("a12",map.get("A12").toString().replaceAll("\n","<w:p></w:p>"));
 		map.put("a13",map.get("A13"));
 		map.put("a14",map.get("A14"));
 		map.put("a15",map.get("A15"));

@@ -82,23 +82,23 @@ function startSearch(){
 		{
 			field : 'bj',
 			title : '编辑',
-			width : 100,
+			width : 120,
 			align : 'center',
 			formatter : function(value,rec,index){
-				return '<a href=javascript:openHjchUpdate("'+index+'")>编辑</a>|'+
-				'<a href=javascript:deleteHjch("'+rec.id+'")>删除</a>|'+
-				'<a href=javascript:hjchDownDoc("'+rec.id+'")>导出</a>|'+
+				return '<a href=javascript:openHjchUpdate("'+index+'")>编辑</a>| '+
+				'<a href=javascript:deleteHjch("'+rec.id+'")>删除</a>| '+
+				'<a href=javascript:hjchDownDoc("'+rec.id+'")>导出</a>| '+
 				'<a href=javascript:openHjch("'+index+'")>详情</a>';
 			}
 		},{
 			field : 'hjwh',
 			title : '汇交文号',
-			width : 150,
+			width : 160,
 			align : 'center'
 		},{
 			field : 'hjdw',
 			title : '汇交单位',
-			width : 100,
+			width : 140,
 			align : 'center'
 		},{
 			field : 'lxdh',
@@ -108,7 +108,7 @@ function startSearch(){
 		},{
 			field : 'chxmmc',
 			title : '测绘项目名称',
-			width : 100,
+			width : 140,
 			align : 'center'
 		},{
 			field : 'chxmszd',
@@ -118,21 +118,11 @@ function startSearch(){
 		},{
 			field : 'scdw',
 			title : '施测单位',
-			width : 100,
+			width : 140,
 			align : 'center'
 		},{
 			field : 'wcsj',
 			title : '完成时间',
-			width : 100,
-			align : 'center'
-		},{
-			field : 'zljcysdw',
-			title : '质量检查验收单位',
-			width : 100,
-			align : 'center'
-		},{
-			field : 'jcyssj',
-			title : '检查验收时间',
 			width : 100,
 			align : 'center'
 		}
