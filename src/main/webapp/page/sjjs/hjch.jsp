@@ -17,18 +17,26 @@
 </head>
 <body style="margin:0 0 0 0;overflow: hidden;">
 <script type="text/javascript">
-function openYhUpdate(_id){
-	YMLib.Var.ID=_id;
-	YMLib.UI.createWindow('hjch_add_win','编辑用户','./hjch_update.jsp','xmgl_03',470,380);
+var obj;
+function openHjchUpdate(index){
+	var data=$("#hjch_table").datagrid('getRows')[index];
+	obj=data;
+	YMLib.UI.createWindow('hjch_update_win','编辑汇交测绘','./hjch_update.jsp','xmgl_03',680,545);
 }
-function deleteYh(_id){
+function openHjch(index){
+	var data=$("#hjch_table").datagrid('getRows')[index];
+	obj=data;
+	YMLib.UI.createWindow('hjch_xq_win','查看汇交测绘详情','./hjch_xq.jsp','xmgl_03',680,545);
+}
+
+function deleteHjch(_id){
 	$.messager.confirm('确认', '是否确认删除所选数据？', function(r){
 		if (r){
 			$.ajax({
 				 type : "POST",
-				 url : "../../xtgl/deleteYh.do",
+				 url : "../../sjjs/deleteHjch.do",
 				 dataType : 'json',
-				 data : 'yhm=' +_id,
+				 data : 'id=' +_id,
 				 success : function(msg){
 					 if(msg){
 						 YMLib.Tools.Show('删除成功！',3000);
@@ -43,6 +51,9 @@ function deleteYh(_id){
 			});
 		}
 	});
+}
+function hjchDownDoc(_id){
+	window.location.href="../../sjjs/hjchDownDoc.do?hjch.id="+_id;
 }
 function startSearch(){
 	//alert($('#test').combobox("getValue")+"|"+$('#test').combobox("getText"));
@@ -71,16 +82,18 @@ function startSearch(){
 		{
 			field : 'bj',
 			title : '编辑',
-			width : 150,
+			width : 100,
 			align : 'center',
 			formatter : function(value,rec,index){
-				return '<a href=javascript:openYhUpdate("'+rec.id+'")>编辑</a>|'+
-				'<a href=javascript:deleteYh("'+rec.id+'")>删除</a>';
+				return '<a href=javascript:openHjchUpdate("'+index+'")>编辑</a>|'+
+				'<a href=javascript:deleteHjch("'+rec.id+'")>删除</a>|'+
+				'<a href=javascript:hjchDownDoc("'+rec.id+'")>导出</a>|'+
+				'<a href=javascript:openHjch("'+index+'")>详情</a>';
 			}
 		},{
-			field : 'whbh',
+			field : 'hjwh',
 			title : '汇交文号',
-			width : 100,
+			width : 150,
 			align : 'center'
 		},{
 			field : 'hjdw',
@@ -98,7 +111,7 @@ function startSearch(){
 			width : 100,
 			align : 'center'
 		},{
-			field : 'jchxmszd',
+			field : 'chxmszd',
 			title : '测绘项目所在地',
 			width : 100,
 			align : 'center'
@@ -164,7 +177,7 @@ $(function(){
 	$(".combo.datebox").css("width","107px");
 	$(".combo.datebox").find("input").css("width","84px");
 	$("#hjch_btn_add").click(function(){
-		YMLib.UI.createWindow('hjch_add_win','添加汇交测绘数据','./hjch_add.jsp','app_add',470,380);
+		YMLib.UI.createWindow('hjch_add_win','添加汇交测绘数据','./hjch_add.jsp','app_add',680,545);
 	});
 	$("#hjch_btn_search").click(function(){
 		startSearch();
@@ -196,7 +209,7 @@ $(function(){
                             <img alt="查询" src="${pageContext.request.contextPath}/images/Button/Serch01.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/Serch02.gif'"
                                 onmouseout="this.src='${pageContext.request.contextPath}/images/Button/Serch01.gif' "  style="border-width:0px;cursor: hand;vertical-align: middle;" onclick="startSearch()"/>
     
-                            <img alt="添加" src="${pageContext.request.contextPath}/images/Button/tianjia1.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/tianjia2.gif'"
+                            <img alt="添加" id="hjch_btn_add" src="${pageContext.request.contextPath}/images/Button/tianjia1.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/tianjia2.gif'"
                                 onmouseout="this.src='${pageContext.request.contextPath}/images/Button/tianjia1.gif' "style="border-width:0px;cursor: hand;vertical-align: middle;" />
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</p>

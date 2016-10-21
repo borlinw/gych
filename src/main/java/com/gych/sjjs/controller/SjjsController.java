@@ -25,6 +25,7 @@ import com.gych.utile.EasyUIPage;
 import com.gych.sjjs.bean.Hjch;
 import com.gych.utile.JsonUtils;
 import com.gych.utile.ResponseUtils;
+import com.gych.utile.WordOperation;
 import com.gych.sjjs.server.SjjsServer;
 /**
  * 系统管理Controller层
@@ -40,6 +41,8 @@ public class SjjsController extends BaseActionSupport{
 	@Resource(name = "sjjsServerImpl")
 	private SjjsServer sjjsServer;
 	private Hjch hjch;
+	private String id;
+	private String xmlName;
 
 	/**
 	 * 汇交测绘数据管理列表
@@ -73,6 +76,7 @@ public class SjjsController extends BaseActionSupport{
 	public void insertHjch(){
 		
 		boolean b=sjjsServer.insertHjch(hjch);
+		System.out.println(hjch.getLxdh());
 		if(b!=true){
 			ResponseUtils.write(getresponse(), "false");
 		}else{
@@ -84,12 +88,24 @@ public class SjjsController extends BaseActionSupport{
 	 * 删除汇交测绘数据
 	 */
 	public void deleteHjch(){
-		boolean bl = sjjsServer.deleteHjch(hjch);
+		boolean bl = sjjsServer.deleteHjch(id);
 		if(bl == true){
 			ResponseUtils.write(getresponse(), "true");
 		}else{
 			ResponseUtils.write(getresponse(), "false");
 		}
+	}
+	public void hjchDownDoc(){
+		//HashMap map=sjjsServer.selectHjchById2(hjch);
+		HashMap map=new HashMap();
+		//System.out.println(map.get("A1"));
+		map.put("a1","16");
+		map.put("a2", "1");
+		map.put("a3", "测试2");
+		xmlName="北京市交通委员会路政局行政许可不予受理通知书2.xml";
+		//xmlName="广元市测绘成果汇交凭证.xml";
+		WordOperation wo=new WordOperation();
+		wo.createDoc(map,xmlName,getresponse());
 	}
 	/**
 	 * 删除汇交测绘数据
@@ -120,6 +136,18 @@ public class SjjsController extends BaseActionSupport{
 	}
 	public void setHjch(Hjch hjch) {
 		this.hjch = hjch;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getXmlName() {
+		return xmlName;
+	}
+	public void setXmlName(String xmlName) {
+		this.xmlName = xmlName;
 	}
 
 }

@@ -13,9 +13,10 @@ public interface SjjsServer {
 
 	boolean insertHjch(Hjch Hjch);
 
-	boolean deleteHjch(Hjch hjch);
+	boolean deleteHjch(String id);
 
 	boolean updateHjch(Hjch Hjch);
 	
 	Hjch selectHjchById(Hjch hjch);
+	HashMap selectHjchById2(Hjch hjch);
 }

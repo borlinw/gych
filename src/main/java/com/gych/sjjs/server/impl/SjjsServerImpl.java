@@ -46,10 +46,11 @@ public class SjjsServerImpl extends BaseOperate  implements SjjsServer{
 		return queryOne("selectHjchById", Hjch);
 	}
 
-	public boolean deleteHjch(Hjch hjch) {
+	public HashMap selectHjchById2(Hjch hjch) {
 		// TODO Auto-generated method stub
-		int b=delete("deleteHjch", hjch);
-		return b>0?true:false;
+		return queryOne("selectHjchById2", hjch);
 	}
+
+
 
 }

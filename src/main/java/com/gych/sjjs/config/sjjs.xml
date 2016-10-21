@@ -5,8 +5,11 @@
 	<select id="selectHjchList" parameterType="hjch" resultType="hjch">
 		select * from (
 		select m.*,rownum rn from (
-			select id,whnf,whbh,hjdw,lxdh,chxmmc,jchxmszd,scdw,wcsj,zljcysdw,jcyssj,hjchcgfbhmlsl,hjchcgfbhmlxxnr from HJCH t
-		where 1=1
+			select id,whnf,whbh,'广测汇凭字（20'||whnf||'）第'||whbh||'号' hjwh,hjdw,lxdh,chxmmc,chxmszd,scdw,wcsj,zljcysdw,jcyssj,
+  				   hjchcgfbhmlsl,hjchcgfbhmlxxnr,a1,a2,a3,a4,a5,b1,b2,b3,b4,b5,c1,c2,c3,c4,c5,
+  				   hjrqm,jsrqm,hjjsn,hjjsy,hjjsr,qzn,qzy,qzr
+			 from HJCH t
+		     where 1=1
 		<if test="chxmmc != null and  chxmmc != ''">
 		and chxmmc like '%'||#{chxmmc}||'%'
 		</if>
@@ -19,11 +22,12 @@
 		<if test="jssj != null and  jssj  != ''">
 		and #{jssj}>=  wcsj
 		</if>
+		order by whnf||whbh
 		)  m
 			where <![CDATA[rownum<=(#{page} * #{rows})]]>
 		) 
 			where RN>((#{page} - 1) * #{rows})
-		order by wcsj
+		
 	</select>
 	<select id="selectHjchListCount" parameterType="hjch" resultType="int">
 		select count(*) from HJCH 
@@ -41,43 +45,40 @@
 		and #{jssj}>=  wcsj
 		</if>
 	</select>
-	
-	<insert id="insertYh" parameterType="master">
-		insert into xtgl_master (id,truename,password,tel,phone,unit,name,sex,roleid,czsj) 
-		values (SYS_GUID(),#{truename},#{password}
-		,#{tel},#{phone},#{unit},#{name},#{sex},#{roleid},SYSDATE)
+
+	<insert id="insertHjch" parameterType="hjch">
+		insert into hjch(id,whnf,whbh,hjdw,lxdh,chxmmc,chxmszd,scdw,wcsj,  zljcysdw,jcyssj,
+        hjchcgfbhmlsl,hjchcgfbhmlxxnr 
+       ,a1,a2,a3,a4,a5,b1,b2,b3,b4,b5,c1,c2,c3,c4,c5,
+        hjrqm,jsrqm,hjjsn,hjjsy,hjjsr,qzn,qzy,qzr )
+		values (SYS_GUID(),#{whnf},#{whbh},#{hjdw},#{lxdh},#{chxmmc},#{chxmszd},#{scdw},#{wcsj}, #{zljcysdw},
+		#{jcyssj},#{hjchcgfbhmlsl},#{hjchcgfbhmlxxnr}
+		,#{a1},#{a2},#{a3},#{a4},#{a5},#{b1},#{b2},#{b3},#{b4},#{b5},#{c1},#{c2}
+		,#{c3},#{c4},#{c5},#{hjrqm},#{jsrqm},#{hjjsn},#{hjjsy},#{hjjsr},#{qzn},#{qzy},#{qzr} )
 	</insert>
 	
-	<delete id="deleteYh" parameterType="String">
-		delete from xtgl_master where id=#{id}
+	<delete id="deleteHjch" parameterType="String">
+		delete from HJCH where id=#{id}
 	</delete>
-	<update id="updateYh" parameterType="master">
-		update xtgl_master set truename=#{truename}
-		<if test="name != null and  name != ''">
-			 ,name =#{name}
-		</if>
-		<if test="password != null and  password != ''">
-			 ,password=#{password} 
-		</if>
-		<if test="sex != null and  sex != ''">
-			 ,sex=#{sex} 
-		</if>
-		<if test="tel != null and  tel != ''">
-			 ,tel=#{tel} 
-		</if>
-		<if test="phone != null and  phone != ''">
-			 ,phone=#{phone} 
-		</if>
-		<if test="idcard != null and  idcard != ''">
-			 ,idcard=#{idcard} 
-		</if>
-		<if test="roleid != null and  roleid != ''">
-			 ,roleid=#{roleid}
-		</if>
-		<if test="unit != null and  unit != ''">
-			 ,unit=#{unit} 
-		</if>
+	<update id="updateHjch" parameterType="hjch">
+		update HJCH set whnf=#{whnf},whbh=#{whbh},hjdw=#{hjdw},lxdh=#{lxdh},chxmmc=#{chxmmc},chxmszd=#{chxmszd},scdw=#{scdw},
+		wcsj=#{wcsj},  zljcysdw=#{zljcysdw},jcyssj=#{jcyssj},
+        hjchcgfbhmlsl=#{hjchcgfbhmlsl},hjchcgfbhmlxxnr=#{hjchcgfbhmlxxnr},
+        a1=#{a1},a2=#{a2},a3=#{a3},a4=#{a4},a5=#{a5},b1=#{b1},b2=#{b2},b3=#{b3},b4=#{b4},b5=#{b5},
+        c1=#{c1},c2=#{c2},c3=#{c3},c4=#{c4},c5=#{c5},
+        hjrqm=#{hjrqm},jsrqm=#{jsrqm},hjjsn=#{hjjsn},hjjsy=#{hjjsy},hjjsr=#{hjjsr},qzn=#{qzn},qzy=#{qzy},qzr=#{qzr}
 		where id=#{id}
 	</update>
+	
+	<select id="selectHjchById2" parameterType="hjch" resultType="hashmap">
+
+			SELECT ID A0,WHNF A1,WHBH A2,HJDW A3,LXDH A4,CHXMMC A5,CHXMSZD A6,SCDW A7,WCSJ A8,
+			ZLJCYSDW A9,JCYSSJ A10,
+  				   HJCHCGFBHMLSL A11,HJCHCGFBHMLXXNR A12,A1 A13,A2 A14,A3 A15,A4 A16,A5 A17,B1 A18,
+  				   B2 A19,B3 A20,B4 A21,B5 A22,C1 A23,C2 A24,C3 A25,C4 A26,C5 A27,
+  				   HJRQM,JSRQM,HJJSN,HJJSY,HJJSR,QZN,QZY,QZR
+			 FROM HJCH T
+		     WHERE ID=#{id}
+    </select>
 	
 </mapper>

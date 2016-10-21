@@ -5,6 +5,11 @@
 <package name="sjjs" extends="struts-default" namespace="/sjjs">
 
 	<action name="selectHjchList" class="sjjsController" method="selectHjchList"/>
+	<action name="insertHjch" class="sjjsController" method="insertHjch"/>
+	<action name="updateHjch" class="sjjsController" method="updateHjch"/>
+	<action name="deleteHjch" class="sjjsController" method="deleteHjch"/>
+	<action name="hjchDownDoc" class="sjjsController" method="hjchDownDoc"/>
+	
 
  </package>
 </struts>
