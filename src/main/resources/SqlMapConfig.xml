@@ -11,7 +11,7 @@
      <typeAlias type="com.gych.xtgl.bean.TreeNode" alias="treeNode"/>
      <typeAlias type="com.gych.xtgl.bean.Unit" alias="unit"/>
      <typeAlias type="com.gych.sjjs.bean.Hjch" alias="hjch"/>
-
+	 <typeAlias type="com.gych.sjjs.bean.Sjff" alias="sjff"/>
  
   </typeAliases>
   <environments default="jdbc">
@@ -42,6 +42,7 @@
 	<mappers>
      <mapper resource="com/gych/xtgl/config/xtgl.xml"/>
      <mapper resource="com/gych/sjjs/config/sjjs.xml"/>
+     <mapper resource="com/gych/sjjs/config/sjff.xml"/>
 
   </mappers>
 </configuration>

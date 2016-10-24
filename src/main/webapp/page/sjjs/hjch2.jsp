@@ -18,40 +18,13 @@
 <body style="margin:0 0 0 0;overflow: hidden;">
 <script type="text/javascript">
 var obj;
-function openHjchUpdate(index){
-	var data=$("#hjch_table").datagrid('getRows')[index];
-	obj=data;
-	YMLib.UI.createWindow('hjch_update_win','编辑汇交测绘','./hjch_update.jsp','xmgl_03',680,545);
-}
+
 function openHjch(index){
 	var data=$("#hjch_table").datagrid('getRows')[index];
 	obj=data;
 	YMLib.UI.createWindow('hjch_xq_win','查看汇交测绘详情','./hjch_xq.jsp','xmgl_03',680,545);
 }
 
-function deleteHjch(_id){
-	$.messager.confirm('确认', '是否确认删除所选数据？', function(r){
-		if (r){
-			$.ajax({
-				 type : "POST",
-				 url : "../../sjjs/deleteHjch.do",
-				 dataType : 'json',
-				 data : 'id=' +_id,
-				 success : function(msg){
-					 if(msg){
-						 YMLib.Tools.Show('删除成功！',3000);
-						 $("#hjch_table").datagrid('reload');
-					 }else{
-						 YMLib.Tools.Show('删除失败',3000);
-					 }
-				 },
-				 error : function(){
-					 YMLib.Tools.Show('服务器请求无响应！error code = 404',3000);
-				 }
-			});
-		}
-	});
-}
 function hjchDownDoc(_id){
 	window.location.href="../../sjjs/hjchDownDoc.do?hjch.id="+_id;
 }
@@ -85,9 +58,7 @@ function startSearch(){
 			width : 120,
 			align : 'center',
 			formatter : function(value,rec,index){
-				return '<a href=javascript:openHjchUpdate("'+index+'")>编辑</a>| '+
-				'<a href=javascript:deleteHjch("'+rec.id+'")>删除</a>| '+
-				'<a href=javascript:hjchDownDoc("'+rec.id+'")>导出</a>| '+
+				return '<a href=javascript:hjchDownDoc("'+rec.id+'")>导出</a>| '+
 				'<a href=javascript:openHjch("'+index+'")>详情</a>';
 			}
 		},{
@@ -166,9 +137,7 @@ $(function(){
 	$(".pagination-page-list").css("width","4em");
 	$(".combo.datebox").css("width","107px");
 	$(".combo.datebox").find("input").css("width","84px");
-	$("#hjch_btn_add").click(function(){
-		YMLib.UI.createWindow('hjch_add_win','添加汇交测绘数据','./hjch_add.jsp','app_add',680,545);
-	});
+	
 	$("#hjch_btn_search").click(function(){
 		startSearch();
 	});
@@ -199,9 +168,6 @@ $(function(){
                             <img alt="查询" src="${pageContext.request.contextPath}/images/Button/Serch01.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/Serch02.gif'"
                                 onmouseout="this.src='${pageContext.request.contextPath}/images/Button/Serch01.gif' "  style="border-width:0px;cursor: hand;vertical-align: middle;" onclick="startSearch()"/>
     
-                            <img alt="添加" id="hjch_btn_add" src="${pageContext.request.contextPath}/images/Button/tianjia1.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/tianjia2.gif'"
-                                onmouseout="this.src='${pageContext.request.contextPath}/images/Button/tianjia1.gif' "style="border-width:0px;cursor: hand;vertical-align: middle;" />
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</p>
 				</div>
         			

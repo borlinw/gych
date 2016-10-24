@@ -11,7 +11,7 @@ $(function() {
 		title:'汇交测绘',
 		imgSrc:'../../images/zcwj.png',
 		renderTo:'left_menu1',
-		href:'./zcwjNoEdit.jsp'
+		href:'../sjjs/hjch2.jsp'
 	});
 	createMenu('LeftMenu',{
 		id:'menu_010303',
@@ -32,7 +32,7 @@ $(function() {
 		title:'数据分发',
 		imgSrc:'../../images/gcwj.png',
 		renderTo:'left_menu1',
-		href:'./gcda.jsp'
+		href:'../sjff/sjff2.jsp'
 	});
 
 

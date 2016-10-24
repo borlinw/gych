@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>汇交测绘管理</title>
+<title>数据分发管理</title>
 <link rel="stylesheet" type="text/css" href="../../css/Top.css" />
 <link rel="stylesheet" type="text/css" href="../../css/style.css" />
 <link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css" />
@@ -18,29 +18,29 @@
 <body style="margin:0 0 0 0;overflow: hidden;">
 <script type="text/javascript">
 var obj;
-function openHjchUpdate(index){
-	var data=$("#hjch_table").datagrid('getRows')[index];
+function openSjffUpdate(index){
+	var data=$("#sjff_table").datagrid('getRows')[index];
 	obj=data;
-	YMLib.UI.createWindow('hjch_update_win','编辑汇交测绘','./hjch_update.jsp','xmgl_03',680,545);
+	YMLib.UI.createWindow('sjff_update_win','编辑数据分发','./sjff_update.jsp','xmgl_03',680,545);
 }
-function openHjch(index){
-	var data=$("#hjch_table").datagrid('getRows')[index];
+function openSjff(index){
+	var data=$("#sjff_table").datagrid('getRows')[index];
 	obj=data;
-	YMLib.UI.createWindow('hjch_xq_win','查看汇交测绘详情','./hjch_xq.jsp','xmgl_03',680,545);
+	YMLib.UI.createWindow('sjff_xq_win','查看数据分发详情','./sjff_xq.jsp','xmgl_03',680,545);
 }
 
-function deleteHjch(_id){
+function deleteSjff(_id){
 	$.messager.confirm('确认', '是否确认删除所选数据？', function(r){
 		if (r){
 			$.ajax({
 				 type : "POST",
-				 url : "../../sjjs/deleteHjch.do",
+				 url : "../../sjff/deleteSjff.do",
 				 dataType : 'json',
 				 data : 'id=' +_id,
 				 success : function(msg){
 					 if(msg){
 						 YMLib.Tools.Show('删除成功！',3000);
-						 $("#hjch_table").datagrid('reload');
+						 $("#sjff_table").datagrid('reload');
 					 }else{
 						 YMLib.Tools.Show('删除失败',3000);
 					 }
@@ -52,13 +52,13 @@ function deleteHjch(_id){
 		}
 	});
 }
-function hjchDownDoc(_id){
-	window.location.href="../../sjjs/hjchDownDoc.do?hjch.id="+_id;
+function sjffDownDoc(_id){
+	window.location.href="../../sjff/sjffDownDoc.do?sjff.id="+_id;
 }
 function startSearch(){
 	//alert($('#test').combobox("getValue")+"|"+$('#test').combobox("getText"));
 	
-	$("#hjch_table").datagrid({
+	$("#sjff_table").datagrid({
 		border:true,
 		//fit:true,
 		height:$(window).height()-$(window).height()*0.22,
@@ -69,12 +69,12 @@ function startSearch(){
 	    pageSize:10,
 	    fitColumns:true,
 		loadMsg:'正在加载请稍候...',
-		url:'../../sjjs/selectHjchList.do',
+		url:'../../sjff/selectSjffList.do',
 		queryParams : {
-			"hjch.chxmmc":$("#chxmmc").val(),
-			"hjch.hjdw":$("#hjdw").val(),
-			"hjch.kssj":$("#kssj").datebox('getValue'),
-			"hjch.jssj":$("#jssj").datebox('getValue')
+			"sjff.xmly":$("#xmly").val(),
+			"sjff.dwmc":$("#dwmc").val(),
+			"sjff.kssj":$("#kssj").datebox('getValue'),
+			"sjff.jssj":$("#jssj").datebox('getValue') 
 		},
 		striped:true,
 		singleSelect:false,
@@ -82,23 +82,28 @@ function startSearch(){
 		{
 			field : 'bj',
 			title : '操作',
-			width : 120,
+			width : 130,
 			align : 'center',
 			formatter : function(value,rec,index){
-				return '<a href=javascript:openHjchUpdate("'+index+'")>编辑</a>| '+
-				'<a href=javascript:deleteHjch("'+rec.id+'")>删除</a>| '+
-				'<a href=javascript:hjchDownDoc("'+rec.id+'")>导出</a>| '+
-				'<a href=javascript:openHjch("'+index+'")>详情</a>';
+				return '<a href=javascript:openSjffUpdate("'+index+'")>编辑</a>| '+
+				'<a href=javascript:deleteSjff("'+rec.id+'")>删除</a>| '+
+				'<a href=javascript:sjffDownDoc("'+rec.id+'")>导出</a>| '+
+				'<a href=javascript:openSjff("'+index+'")>详情</a>';
 			}
 		},{
-			field : 'hjwh',
-			title : '汇交文号',
+			field : 'dwmc',
+			title : '单位名称',
 			width : 160,
 			align : 'center'
 		},{
-			field : 'hjdw',
-			title : '汇交单位',
-			width : 140,
+			field : 'fddbr',
+			title : '法定代表人',
+			width : 100,
+			align : 'center'
+		},{
+			field : 'jbrxm',
+			title : '经办人姓名',
+			width : 100,
 			align : 'center'
 		},{
 			field : 'lxdh',
@@ -106,24 +111,29 @@ function startSearch(){
 			width : 100,
 			align : 'center'
 		},{
-			field : 'chxmmc',
-			title : '测绘项目名称',
-			width : 140,
-			align : 'center'
-		},{
-			field : 'chxmszd',
-			title : '测绘项目所在地',
+			field : 'sqsj',
+			title : '申请时间',
 			width : 100,
 			align : 'center'
 		},{
-			field : 'scdw',
-			title : '施测单位',
+			field : 'xmly',
+			title : '项目来源',
 			width : 140,
 			align : 'center'
 		},{
-			field : 'wcsj',
-			title : '完成时间',
+			field : 'symd',
+			title : '使用目的',
 			width : 100,
+			align : 'center'
+		},{
+			field : 'sxsjzlmc',
+			title : '所需数据资料名称',
+			width : 140,
+			align : 'center'
+		},{
+			field : 'zlfwjdjsl',
+			title : '种类、范围、精度及数量',
+			width : 140,
 			align : 'center'
 		}
 		]]
@@ -166,10 +176,10 @@ $(function(){
 	$(".pagination-page-list").css("width","4em");
 	$(".combo.datebox").css("width","107px");
 	$(".combo.datebox").find("input").css("width","84px");
-	$("#hjch_btn_add").click(function(){
-		YMLib.UI.createWindow('hjch_add_win','添加汇交测绘数据','./hjch_add.jsp','app_add',680,545);
+	$("#sjff_btn_add").click(function(){
+		YMLib.UI.createWindow('sjff_add_win','添加数据分发数据','./sjff_add.jsp','app_add',680,545);
 	});
-	$("#hjch_btn_search").click(function(){
+	$("#sjff_btn_search").click(function(){
 		startSearch();
 	});
 });
@@ -177,7 +187,7 @@ $(function(){
 <div style="width:100%;">
     <div  style="height:96px;" border="false">
 	    <div id="righttop">
-			<div id="p_top">当前位置>&nbsp;数据接收>&nbsp;汇交测绘</div>
+			<div id="p_top">当前位置>&nbsp;数据接收>&nbsp;数据分发</div>
 		</div>
 		<div  style="padding-left: 10px; padding-right: 10px;">
 			<fieldset style="width:99%; text-align: left; vertical-align: middle;">
@@ -186,11 +196,11 @@ $(function(){
  				</legend>
 				<div>
 					<p style="margin: 1% 0px 1% 2%;">
-							<span>汇交单位：</span>
-							 <input class="combo-text validatebox-text" id="hjdw" style="width: 113px; height: 20px; line-height: 20px;" type="text">
-							<span>测绘项目名称：</span>
-							 <input class="combo-text validatebox-text" id="chxmmc" style="width: 113px; height: 20px; line-height: 20px;" type="text">
-							<span>完成时间：</span>
+							<span>申请单位：</span>
+							 <input class="combo-text validatebox-text" id="dwmc" style="width: 113px; height: 20px; line-height: 20px;" type="text">
+							<span>项目来源：</span>
+							 <input class="combo-text validatebox-text" id="xmly" style="width: 113px; height: 20px; line-height: 20px;" type="text">
+							<span>申请时间：</span>
 							<input type="text" id="kssj" >
 							<span>至</span>
 							<input type="text" id="jssj" >
@@ -199,7 +209,7 @@ $(function(){
                             <img alt="查询" src="${pageContext.request.contextPath}/images/Button/Serch01.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/Serch02.gif'"
                                 onmouseout="this.src='${pageContext.request.contextPath}/images/Button/Serch01.gif' "  style="border-width:0px;cursor: hand;vertical-align: middle;" onclick="startSearch()"/>
     
-                            <img alt="添加" id="hjch_btn_add" src="${pageContext.request.contextPath}/images/Button/tianjia1.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/tianjia2.gif'"
+                            <img alt="添加" id="sjff_btn_add" src="${pageContext.request.contextPath}/images/Button/tianjia1.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/tianjia2.gif'"
                                 onmouseout="this.src='${pageContext.request.contextPath}/images/Button/tianjia1.gif' "style="border-width:0px;cursor: hand;vertical-align: middle;" />
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</p>
@@ -209,7 +219,7 @@ $(function(){
         </div>
     </div>
     <div style="height:350px;">
-    	<table id="hjch_table" width="100%"></table>
+    	<table id="sjff_table" width="100%"></table>
     </div>
 </div>
 </body>

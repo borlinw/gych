@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>添加汇交测绘数据</title>
+	<title>编辑汇交测绘数据</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/easyui/themes/default/easyui.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/easyui/themes/icon.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/autocomplete/jquery.autocomplete.css" />
@@ -278,6 +278,10 @@ $(function(){
 		<script type="text/javascript">
 		
 			function editHjch(){
+				if($('input[name="wcsj"]').val()==""){
+					alert("完成时间不能为空！");
+					return;
+				}
 				var hjch={'hjch.id':parent.obj.id,
 						'hjch.whnf':$('#whnf').val(),'hjch.whbh':$('#whbh').val(),
 						'hjch.hjdw':$("#hjdw").val(),'hjch.lxdh':$('#lxdh').val() ,
@@ -291,7 +295,7 @@ $(function(){
 						'hjch.b2':$('#b2').val(),'hjch.b3':$('#b3').val(),
 						'hjch.b4':$('#b4').val(),'hjch.b5':$('#b5').val(),
 						'hjch.c1':$('#c1').val(),'hjch.c2':$('#c2').val(),
-						'hjch.c3':$('#c1').val(),'hjch.c4':$('#c4').val(),
+						'hjch.c3':$('#c3').val(),'hjch.c4':$('#c4').val(),
 						'hjch.c5':$('#c5').val(),'hjch.hjrqm':$('#hjrqm').val(),
 						'hjch.jsrqm':$('#jsrqm').val(),'hjch.hjjsn':$('#hjjsn').val(),
 						'hjch.hjjsy':$('#hjjsy').val(),'hjch.hjjsr':$('#hjjsr').val(),

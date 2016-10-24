@@ -4,7 +4,7 @@ $(function() {
 		title:'数据分发',
 		imgSrc:'../../images/zcwj.png',
 		renderTo:'left_menu1',
-		href:'./zcwj.jsp'
+		href:'./sjff.jsp'
 	});
 	
 	menuQx();

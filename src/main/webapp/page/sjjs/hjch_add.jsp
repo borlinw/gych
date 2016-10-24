@@ -243,6 +243,10 @@ $(function(){
 		<script type="text/javascript">
 		
 			function addZjxd(){
+				if($('input[name="wcsj"]').val()==""){
+					alert("完成时间不能为空！");
+					return;
+				}
 				var hjch={'hjch.whnf':$('#whnf').val(),'hjch.whbh':$('#whbh').val(),
 						'hjch.hjdw':$("#hjdw").val(),'hjch.lxdh':$('#lxdh').val() ,
 						'hjch.chxmmc':$('#chxmmc').val(),'hjch.chxmszd':$("#chxmszd").val(),
@@ -255,7 +259,7 @@ $(function(){
 						'hjch.b2':$('#b2').val(),'hjch.b3':$('#b3').val(),
 						'hjch.b4':$('#b4').val(),'hjch.b5':$('#b5').val(),
 						'hjch.c1':$('#c1').val(),'hjch.c2':$('#c2').val(),
-						'hjch.c3':$('#c1').val(),'hjch.c4':$('#c4').val(),
+						'hjch.c3':$('#c3').val(),'hjch.c4':$('#c4').val(),
 						'hjch.c5':$('#c5').val(),'hjch.hjrqm':$('#hjrqm').val(),
 						'hjch.jsrqm':$('#jsrqm').val(),'hjch.hjjsn':$('#hjjsn').val(),
 						'hjch.hjjsy':$('#hjjsy').val(),'hjch.hjjsr':$('#hjjsr').val(),
