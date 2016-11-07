@@ -8,7 +8,7 @@ $(function() {
 	});
 	createMenu('LeftMenu',{
 		id:'menu_010302',
-		title:'汇交测绘',
+		title:'成果汇交',
 		imgSrc:'../../images/zcwj.png',
 		renderTo:'left_menu1',
 		href:'../sjjs/hjch2.jsp'

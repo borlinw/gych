@@ -2,9 +2,14 @@ package com.gych.sjjs.server.impl;
 
 import java.util.HashMap;
 import java.util.List;
+
 import org.springframework.stereotype.Service;
+
 import com.hdsx.dao.query.base.BaseOperate;
 import com.gych.sjjs.bean.Hjch;
+import com.gych.sjjs.bean.HjchMx;
+import com.gych.sjjs.bean.Jcch;
+import com.gych.sjjs.bean.JcchMx;
 import com.gych.sjjs.server.SjjsServer;
 
 @Service
@@ -51,6 +56,75 @@ public class SjjsServerImpl extends BaseOperate  implements SjjsServer{
 		return queryOne("selectHjchById2", hjch);
 	}
 
+	public List<HjchMx> selectHjchMx(Hjch hm) {
+		// TODO Auto-generated method stub
+		return queryList("selectHjchMx", hm);
+	}
+
+	public boolean addHjchMxBatch(List<HjchMx> list) {
+		// TODO Auto-generated method stub
+		int b=insertBatch("addHjchMxBatch", list);
+		return b>0?true:false;
+	}
+
+	public boolean deleteHjchMxById(String id) {
+		// TODO Auto-generated method stub
+		int b=delete("deleteHjchMxById",id);
+		return b>0?true:false;
+	}
 
 
+		public int selectJcchListCount(Jcch hm) {
+		return queryOne("selectJcchListCount", hm);
+	}
+	
+	
+	public List<Jcch> selectJcchList(Jcch hm) {
+		return queryList("selectJcchList", hm);
+	}
+	
+	
+	public boolean insertJcch(Jcch Jcch) {
+		int b=insert("insertJcch", Jcch);
+		return b>0?true:false;
+	}
+	
+	
+	public boolean deleteJcch(String id) {
+		int b=delete("deleteJcch",id);
+		return b>0?true:false;
+	}
+	
+	
+	public boolean updateJcch(Jcch Jcch) {
+		int b=update("updateJcch", Jcch);
+		return b>0?true:false;
+	}
+	
+		
+	public Jcch selectJcchById(Jcch Jcch) {
+		return queryOne("selectJcchById", Jcch);
+	}
+	
+	public HashMap selectJcchById2(Jcch jcch) {
+		// TODO Auto-generated method stub
+		return queryOne("selectJcchById2", jcch);
+	}
+	
+	public List<JcchMx> selectJcchMx(Jcch hm) {
+		// TODO Auto-generated method stub
+		return queryList("selectJcchMx", hm);
+	}
+	
+	public boolean addJcchMxBatch(List<JcchMx> list) {
+		// TODO Auto-generated method stub
+		int b=insertBatch("addJcchMxBatch", list);
+		return b>0?true:false;
+	}
+	
+	public boolean deleteJcchMxById(String id) {
+		// TODO Auto-generated method stub
+		int b=delete("deleteJcchMxById",id);
+		return b>0?true:false;
+	}
 }

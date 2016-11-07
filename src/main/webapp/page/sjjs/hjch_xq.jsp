@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>添加汇交测绘数据</title>
+	<title>汇交测绘数据详情</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/easyui/themes/default/easyui.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/easyui/themes/icon.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/autocomplete/jquery.autocomplete.css" />
@@ -16,8 +16,13 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/autocomplete/jquery.autocomplete.js" ></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/util/jquery.cookie.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/YMLib.js"></script>
+<style type="text/css">
+    .addmx
+    {
+        text-align: left; background-color: #F1F8FF; width: 10%; padding-right: 5px;
+    }
+</style>
 <script type="text/javascript">
-
 $(function(){
 	var data=parent.obj;
 	$("#whnf").val(data.whnf);
@@ -32,21 +37,6 @@ $(function(){
 	$("#jcyssj").val(data.jcyssj);
 	$("#hjchcgfbhmlsl").val(data.hjchcgfbhmlsl);
 	$("#hjchcgfbhmlxxnr").val(data.hjchcgfbhmlxxnr);
-	$("#a1").val(data.a1);
-	$("#a2").val(data.a2);
-	$("#a3").val(data.a3);
-	$("#a4").val(data.a4);
-	$("#a5").val(data.a5);
-	$("#b1").val(data.b1);
-	$("#b2").val(data.b2);
-	$("#b3").val(data.b3);
-	$("#b4").val(data.b4);
-	$("#b5").val(data.b5);
-	$("#c1").val(data.c1);
-	$("#c2").val(data.c2);
-	$("#c3").val(data.c3);
-	$("#c4").val(data.c4);
-	$("#c5").val(data.c5);
 	$("#hjrqm").val(data.hjrqm);
 	$("#jsrqm").val(data.jsrqm);
 	$("#hjjsn").val(data.hjjsn);
@@ -61,8 +51,35 @@ $(function(){
 	});  
 	$(".combo.datebox").css("width","100px");
 	$(".combo.datebox").find("input").css("width","77px");
+	addmxlb();
 
 });
+function addmxlb(){
+	var hjch={'hjch.id':parent.obj.id};
+	$.ajax({
+		type:'post',
+		url:'/gych/sjjs/selectHjchMx.do',
+		dataType:'json',
+		data:hjch,
+		success:function(data){
+			var $table= $("#mxtable");
+		    //字符串拼接tr一行中的内容
+		   for( var j=0;j<data.length;j++){
+			   var tr = '<tr style="height: 35px;">';
+			   // for (var i = 0; i < 5; i++) {
+			        tr += "<td class='addmx'><input id='text"+ j + 1 + "' type='text' value='"+data[j].xh+"' style='width: 94px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 2 + "' type='text' value='"+data[j].sjlx+"' style='width: 94px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 3 + "' type='text' value='"+data[j].sl+"' style='width: 94px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 4 + "' type='text' value='"+data[j].zbx+"' style='width: 94px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 5 + "' type='text' value='"+data[j].bz+"' style='width: 94px;'/></td>";
+			        // }
+			    tr += "</tr>";
+				$table.append(tr);
+		   }
+		}
+	});
+}
+
 </script>
 </head>
 <body>
@@ -71,7 +88,7 @@ $(function(){
 		<table width="98%" height="60%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px; margin-left: 13px;">
 			<tr>
 				<td><br />
-				   <table width="595px;" border="0" height="20px;">
+				   <table width="594px;" border="0" height="20px;">
 						<tr>
 							<td style="vertical-align: middle;text-align: center;">广元市测绘成果汇交凭证</td>
 						</tr>
@@ -79,7 +96,7 @@ $(function(){
 							<td style="vertical-align: middle;text-align: right;">广测汇凭字（20<input type="text" id="whnf" style="width: 20px;"/>）第<input type="text" id="whbh" style="width: 20px;"/>号</td>
 						</tr>
 					</table>
-					<table width="595px;" border="0"
+					<table width="594px;" border="0"
 						style="border-style: solid; border-width: 3px 1px 1px 1px; border-color: #55BEEE #C0C0C0 #C0C0C0 #C0C0C0; height: 45px;"
 						cellspacing="0" cellpadding="0">
 						<tr style="height: 35px;">
@@ -151,33 +168,43 @@ $(function(){
 						</tr>
 					</table>
 					
-					<table width="595px;" border="1"
+					<table width="594px;" border="1"
 						style="border-style: solid; border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 45px;"
-						cellspacing="0" cellpadding="0">
+						cellspacing="0" cellpadding="0" id="mxtable" >
 						<tr style="height: 35px;">
-							<td style="zwidth: 11%; padding-right: 5px;">
+							<td class="addmx">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									序号</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									数据类型</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									数量</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									坐标系</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									备注</font></b>
 							</td>
+							<%-- <td style=" text-align: center; background-color: #F1F8FF; width: 66px;">
+								<input type="image"  onclick="addmx()"
+								alt="添加"
+								src="${pageContext.request.contextPath}/images/Button/tj.png" style="border-width: 0px;width: 20px;" />
+								&nbsp; 
+								<input type="image"  onclick="deletemx()"
+								alt="删除"
+								src="${pageContext.request.contextPath}/images/Button/sc.png" style="border-width: 0px;width: 20px;" />
+								&nbsp; 
+                            </td> --%>
 							
 						</tr>
-						<tr style="height: 35px;">
+						<!--  <tr style="height: 35px;">
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="a1" name="a1" type="text"  style="width: 80px;" />&nbsp;
 							</td>
@@ -192,8 +219,7 @@ $(function(){
 							</td>
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="a5" name="a5" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							
+							</td><td></td>
 						</tr>
 					
 						<tr style="height: 35px;">
@@ -211,7 +237,7 @@ $(function(){
 							</td>
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="b5" name="b5" type="text"  style="width: 80px;" />&nbsp;
-							</td>
+							</td><td></td>
 							
 						</tr>
 						<tr style="height: 35px;">
@@ -227,22 +253,26 @@ $(function(){
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="c4" name="c4" type="text"  style="width: 80px;" />&nbsp;
 							</td>
-							<td style=" border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
+							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="c5" name="c5" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							
+							</td><td></td>-->
 						</tr>
+						</table>
+						<table width="594px;" border="1"
+						style="border-style: solid; border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 45px;"
+						cellspacing="0" cellpadding="0"> 
 						<tr style="height: 100px;">
 							<td style="text-align: left;height: 200px;vertical-align: top;"
 							colspan="5">
 								汇交测绘成果副本或目录详细内容：<br/>
-						<textarea name="hjchcgfbhmlxxnr" rows="20" cols="20" id="hjchcgfbhmlxxnr"
+								<textarea name="hjchcgfbhmlxxnr" rows="20" cols="20" id="hjchcgfbhmlxxnr"
 						style="border-color: Black; border-width: 1px; border-style: Solid; height: 88%; width: 99%; overflow: auto"></textarea>
-															</td>
+								
+							</td>
 							
 						</tr>
 					</table>
-					<table width="595px;" border="1"
+					<table width="594px;" border="1"
 						style="border-style: solid; border border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 120px;"
 						cellspacing="0" cellpadding="0">
 						<tr>
@@ -260,7 +290,6 @@ $(function(){
 						style=" margin-top: 20px; height: 45px;"
 						cellspacing="0" cellpadding="0">
 						<tr style="height: 30px;">
-							<td align="center">
 							<td align="center">
 								
 								<input type="image" name="btnCancel" id="btnCancel" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/fanhui2.GIF'" alt="返回"

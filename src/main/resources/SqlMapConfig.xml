@@ -12,6 +12,9 @@
      <typeAlias type="com.gych.xtgl.bean.Unit" alias="unit"/>
      <typeAlias type="com.gych.sjjs.bean.Hjch" alias="hjch"/>
 	 <typeAlias type="com.gych.sjjs.bean.Sjff" alias="sjff"/>
+	 <typeAlias type="com.gych.sjjs.bean.HjchMx" alias="hjchMx"/>
+	 <typeAlias type="com.gych.sjjs.bean.Jcch" alias="jcch"/>
+	 <typeAlias type="com.gych.sjjs.bean.JcchMx" alias="jcchMx"/>
  
   </typeAliases>
   <environments default="jdbc">

@@ -18,13 +18,40 @@
 <body style="margin:0 0 0 0;overflow: hidden;">
 <script type="text/javascript">
 var obj;
-
+function openSjffUpdate(index){
+	var data=$("#sjff_table").datagrid('getRows')[index];
+	obj=data;
+	YMLib.UI.createWindow('sjff_update_win','编辑数据分发','./sjff_update.jsp','xmgl_03',680,545);
+}
 function openSjff(index){
 	var data=$("#sjff_table").datagrid('getRows')[index];
 	obj=data;
 	YMLib.UI.createWindow('sjff_xq_win','查看数据分发详情','./sjff_xq.jsp','xmgl_03',680,545);
 }
 
+function deleteSjff(_id){
+	$.messager.confirm('确认', '是否确认删除所选数据？', function(r){
+		if (r){
+			$.ajax({
+				 type : "POST",
+				 url : "../../sjff/deleteSjff.do",
+				 dataType : 'json',
+				 data : 'id=' +_id,
+				 success : function(msg){
+					 if(msg){
+						 YMLib.Tools.Show('删除成功！',3000);
+						 $("#sjff_table").datagrid('reload');
+					 }else{
+						 YMLib.Tools.Show('删除失败',3000);
+					 }
+				 },
+				 error : function(){
+					 YMLib.Tools.Show('服务器请求无响应！error code = 404',3000);
+				 }
+			});
+		}
+	});
+}
 function sjffDownDoc(_id){
 	window.location.href="../../sjff/sjffDownDoc.do?sjff.id="+_id;
 }
@@ -65,11 +92,6 @@ function startSearch(){
 			field : 'dwmc',
 			title : '单位名称',
 			width : 160,
-			align : 'center'
-		},{
-			field : 'fddbr',
-			title : '法定代表人',
-			width : 100,
 			align : 'center'
 		},{
 			field : 'jbrxm',
@@ -180,9 +202,6 @@ $(function(){
                             <img alt="查询" src="${pageContext.request.contextPath}/images/Button/Serch01.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/Serch02.gif'"
                                 onmouseout="this.src='${pageContext.request.contextPath}/images/Button/Serch01.gif' "  style="border-width:0px;cursor: hand;vertical-align: middle;" onclick="startSearch()"/>
     
-                            <img alt="添加" id="sjff_btn_add" src="${pageContext.request.contextPath}/images/Button/tianjia1.gif" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/tianjia2.gif'"
-                                onmouseout="this.src='${pageContext.request.contextPath}/images/Button/tianjia1.gif' "style="border-width:0px;cursor: hand;vertical-align: middle;" />
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</p>
 				</div>
         			

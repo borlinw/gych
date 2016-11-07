@@ -16,6 +16,12 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/autocomplete/jquery.autocomplete.js" ></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/util/jquery.cookie.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/YMLib.js"></script>
+<style type="text/css">
+    .addmx
+    {
+        text-align: left; background-color: #F1F8FF; width: 10%; padding-right: 5px;
+    }
+</style>
 <script type="text/javascript">
 $(function(){
 	$("#wcsj").datebox({    
@@ -25,8 +31,22 @@ $(function(){
 	$(".combo.datebox").css("width","100px");
 	$(".combo.datebox").find("input").css("width","77px");
 });
-
-
+var row = 0;
+function addmx() {
+	var $table= $("#mxtable");
+	row++;
+    //字符串拼接tr一行中的内容
+   var tr = '<tr style="height: 35px;">';
+    for (var i = 0; i < 5; i++) {
+        tr += "<td class='addmx'><input id='text"+ row + i + "' type='text' value='' style='width: 94px;'/></td>";
+    }
+    tr += "<td><input id='Checkbox1' name='ckb' type='checkbox' /> </td></tr>";
+	$table.append(tr);
+}
+//删除添加的行，先判断checkbox是否选中，然后删除
+function deletemx(){
+     $("input[name=ckb]:checked").each(function () { $(this).parent().parent().remove(); });
+ }
 </script>
 </head>
 <body>
@@ -35,7 +55,7 @@ $(function(){
 		<table width="98%" height="60%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px; margin-left: 13px;">
 			<tr>
 				<td><br />
-				   <table width="595px;" border="0" height="20px;">
+				   <table width="594px;" border="0" height="20px;">
 						<tr>
 							<td style="vertical-align: middle;text-align: center;">广元市测绘成果汇交凭证</td>
 						</tr>
@@ -43,7 +63,7 @@ $(function(){
 							<td style="vertical-align: middle;text-align: right;">广测汇凭字（20<input type="text" id="whnf" style="width: 20px;"/>）第<input type="text" id="whbh" style="width: 20px;"/>号</td>
 						</tr>
 					</table>
-					<table width="595px;" border="0"
+					<table width="594px;" border="0"
 						style="border-style: solid; border-width: 3px 1px 1px 1px; border-color: #55BEEE #C0C0C0 #C0C0C0 #C0C0C0; height: 45px;"
 						cellspacing="0" cellpadding="0">
 						<tr style="height: 35px;">
@@ -115,33 +135,43 @@ $(function(){
 						</tr>
 					</table>
 					
-					<table width="595px;" border="1"
+					<table width="594px;" border="1"
 						style="border-style: solid; border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 45px;"
-						cellspacing="0" cellpadding="0">
+						cellspacing="0" cellpadding="0" id="mxtable" >
 						<tr style="height: 35px;">
-							<td style="zwidth: 11%; padding-right: 5px;">
+							<td class="addmx">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									序号</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									数据类型</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									数量</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									坐标系</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 11%; padding-right: 5px;">
+							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									备注</font></b>
 							</td>
+							<td style=" text-align: center; background-color: #F1F8FF; width: 66px;">
+								<input type="image"  onclick="addmx()"
+								alt="添加"
+								src="${pageContext.request.contextPath}/images/Button/tj.png" style="border-width: 0px;width: 20px;" />
+								&nbsp; 
+								<input type="image"  onclick="deletemx()"
+								alt="删除"
+								src="${pageContext.request.contextPath}/images/Button/sc.png" style="border-width: 0px;width: 20px;" />
+								&nbsp; 
+                            </td>
 							
 						</tr>
-						<tr style="height: 35px;">
+						<!--  <tr style="height: 35px;">
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="a1" name="a1" type="text"  style="width: 80px;" />&nbsp;
 							</td>
@@ -156,8 +186,7 @@ $(function(){
 							</td>
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="a5" name="a5" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							
+							</td><td></td>
 						</tr>
 					
 						<tr style="height: 35px;">
@@ -175,7 +204,7 @@ $(function(){
 							</td>
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="b5" name="b5" type="text"  style="width: 80px;" />&nbsp;
-							</td>
+							</td><td></td>
 							
 						</tr>
 						<tr style="height: 35px;">
@@ -191,11 +220,14 @@ $(function(){
 							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="c4" name="c4" type="text"  style="width: 80px;" />&nbsp;
 							</td>
-							<td style=" border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
+							<td style=" text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<input id="c5" name="c5" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							
+							</td><td></td>-->
 						</tr>
+						</table>
+						<table width="594px;" border="1"
+						style="border-style: solid; border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 45px;"
+						cellspacing="0" cellpadding="0"> 
 						<tr style="height: 100px;">
 							<td style="text-align: left;height: 200px;vertical-align: top;"
 							colspan="5">
@@ -207,7 +239,7 @@ $(function(){
 							
 						</tr>
 					</table>
-					<table width="595px;" border="1"
+					<table width="594px;" border="1"
 						style="border-style: solid; border border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 120px;"
 						cellspacing="0" cellpadding="0">
 						<tr>
@@ -226,7 +258,6 @@ $(function(){
 						cellspacing="0" cellpadding="0">
 						<tr style="height: 30px;">
 							<td align="center">
-							<td align="center">
 								<input type="image" name="btnAdd" id="btnAdd" onclick="addZjxd()"
 								onmouseover="this.src='${pageContext.request.contextPath}/images/Button/baocun2.gif'" alt="保存"
 								onmouseout="this.src='${pageContext.request.contextPath}/images/Button/baocun1.gif'"
@@ -241,26 +272,22 @@ $(function(){
 			</tr>
 		</table>
 		<script type="text/javascript">
-		
+		    var mxstr="";
 			function addZjxd(){
 				if($('input[name="wcsj"]').val()==""){
 					alert("完成时间不能为空！");
 					return;
 				}
+				$('#mxtable input').each(function () {
+					mxstr += $(this).val() + ",";
+		         });
 				var hjch={'hjch.whnf':$('#whnf').val(),'hjch.whbh':$('#whbh').val(),
 						'hjch.hjdw':$("#hjdw").val(),'hjch.lxdh':$('#lxdh').val() ,
 						'hjch.chxmmc':$('#chxmmc').val(),'hjch.chxmszd':$("#chxmszd").val(),
 						'hjch.scdw':$('#scdw').val(),'hjch.wcsj':$('input[name="wcsj"]').val(),
 						'hjch.zljcysdw':$('#zljcysdw').val(),'hjch.jcyssj':$('input[name="jcyssj"]').val(),
 						'hjch.hjchcgfbhmlsl':$('#hjchcgfbhmlsl').val(),'hjch.hjchcgfbhmlxxnr':$('#hjchcgfbhmlxxnr').val(),
-						'hjch.a1':$('#a1').val(),'hjch.a2':$('#a2').val(),
-						'hjch.a3':$('#a3').val(),'hjch.a4':$('#a4').val(),
-						'hjch.a5':$('#a5').val(),'hjch.b1':$('#b1').val(),
-						'hjch.b2':$('#b2').val(),'hjch.b3':$('#b3').val(),
-						'hjch.b4':$('#b4').val(),'hjch.b5':$('#b5').val(),
-						'hjch.c1':$('#c1').val(),'hjch.c2':$('#c2').val(),
-						'hjch.c3':$('#c3').val(),'hjch.c4':$('#c4').val(),
-						'hjch.c5':$('#c5').val(),'hjch.hjrqm':$('#hjrqm').val(),
+						'hjch.mxstr':mxstr,'hjch.hjrqm':$('#hjrqm').val(),
 						'hjch.jsrqm':$('#jsrqm').val(),'hjch.hjjsn':$('#hjjsn').val(),
 						'hjch.hjjsy':$('#hjjsy').val(),'hjch.hjjsr':$('#hjjsr').val(),
 						'hjch.qzn':$('#qzn').val(),'hjch.qzy':$('#qzy').val(),

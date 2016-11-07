@@ -76,47 +76,9 @@ $(function(){
 								<input  id="dwmc" name="dwmc" type="text"   />&nbsp;
 							</td>
 						</tr>
-						<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									详细地址</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="xxdz" name="xxdz" type="text"   />&nbsp;
-							</td>
-						</tr>
 						
-						<tr style="height: 35px;">
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									组织机构代码</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="zzjgdm" name="zzjgdm" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									法定代表人</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="fddbr" name="fddbr" type="text"  style="width: 80px;"/>&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">法人证书号码</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px;">
-								<input id="frzshm" name="frzshm" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">邮政编码</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input id="yzbm" name="yzbm" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							
-						</tr>
+						
+						
 						<tr style="height: 35px;">
 							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">经办人姓名</font></b>
@@ -140,128 +102,29 @@ $(function(){
 								<input id="lxdh" name="lxdh" type="text"  style="width: 80px;" />&nbsp;
 							</td>
 							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">电子邮箱</font></b>
+								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">申请时间</font></b>
 							</td>
 							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input id="dzyx"  name= "dzyx" type="text"  style="width: 80px;" />&nbsp;
+								<input  id="sqsj" name="sqsj" type="text" />&nbsp;
 							</td>
 							
 						</tr>
-						<tr style="height: 35px;">
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;"colspan="4">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">申请人负责保密资料管理的机构或人员信息</font></b>
-							</td>
-							
-						</tr>
+						
 					<tr style="height: 35px;">
 							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									机构名称</font></b>
+									保密机构名称</font></b>
 							</td>
 							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
 								<input  id="bmjgmc" name="bmjgmc" type="text"   />&nbsp;
 							</td>
 						</tr>
-						<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									人员姓名</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="bmryxm" name="bmryxm" type="text"   />&nbsp;
-							</td>
-						</tr>
-						
-						<tr style="height: 35px;">
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									邮政编码</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="bmyzbm" name="bmyzbm" type="text"  style="width: 80px;" />&nbsp;
-							</td>
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									联系电话</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="bmlxdh" name="bmlxdh" type="text"  style="width: 80px;"/>&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									详细地址</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="bmxxdz" name="bmxxdz" type="text"   />&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									电子邮箱</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="bmdzyx" name="bmdzyx" type="text"   />&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;"colspan="4">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">测绘行政主管部门信息</font></b>
-							</td>
-							
-						</tr>
 					<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									部门名称</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="zgbmmc" name="zgbmmc" type="text"   value="广元市测绘地理信息局"/>&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									承办科室</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="zgcbks" name="zgcbks" type="text"  value="广元市测绘管理处" />&nbsp;
-							</td>
-						</tr>
-						
-						<tr style="height: 35px;">
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									邮政编码</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="zgyzbm" name="zgyzbm" type="text"  style="width: 80px;" value="628017"/>&nbsp;
-							</td>
-							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									联系电话</font></b>
-							</td>
-							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="zglxdh" name="zglxdh" type="text"  style="width: 80px;" value="3272291"/>&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									详细地址</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="zgxxdz" name="zgxxdz" type="text"   value="广元市利州东路612号"/>&nbsp;
-							</td>
-						</tr>
-						<tr style="height: 35px;">
 							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF; width: 15%; padding-right: 5px;"colspan="4">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">使用广元市地理信息数据的相关内容</font></b>
 							</td>
 							
-						</tr>
+						</tr>	
 					<tr style="height: 35px;">
 							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
@@ -306,15 +169,7 @@ $(function(){
 							</td>
 						</tr>
 						
-						<tr style="height: 6px;">
-							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									申请时间</font></b>
-							</td>
-							<td  colspan="3" style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="sqsj" name="sqsj" type="text" />&nbsp;
-							</td>
-						</tr>
+					
 						<tr style="height: 50px;">
 							<td  style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: center; background-color: #F1F8FF;  padding-right: 5px;">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
@@ -369,18 +224,18 @@ $(function(){
 					alert("申请时间不能为空！");
 					return;
 				}
-				var sjff={'sjff.dwmc':$('#dwmc').val(),'sjff.xxdz':$('#xxdz').val(),
-						'sjff.zzjgdm':$("#zzjgdm").val(),'sjff.fddbr':$('#fddbr').val() ,
-						'sjff.frzshm':$('#frzshm').val(),'sjff.yzbm':$("#yzbm").val(),
+				var sjff={'sjff.dwmc':$('#dwmc').val(),'sjff.xxdz':' ',
+						'sjff.zzjgdm':' ','sjff.fddbr':' ',
+						'sjff.frzshm':' ','sjff.yzbm':' ',
 						'sjff.jbrxm':$('#jbrxm').val(),'sjff.sqsj':$('input[name="sqsj"]').val(),
 						'sjff.sfzhm':$('#sfzhm').val(),
-						'sjff.lxdh':$('#lxdh').val(),'sjff.dzyx':$('#dzyx').val(),
-						'sjff.bmjgmc':$('#bmjgmc').val(),'sjff.bmryxm':$('#bmryxm').val(),
-						'sjff.bmyzbm':$('#bmyzbm').val(),'sjff.bmlxdh':$('#bmlxdh').val(),
-						'sjff.bmxxdz':$('#bmxxdz').val(),'sjff.bmdzyx':$('#bmdzyx').val(),
-						'sjff.zgbmmc':$('#zgbmmc').val(),'sjff.zgcbks':$('#zgcbks').val(),
-						'sjff.zgyzbm':$('#zgyzbm').val(),'sjff.zglxdh':$('#zglxdh').val(),
-						'sjff.zgxxdz':$('#zgxxdz').val(),'sjff.xmly':$('#xmly').val(),
+						'sjff.lxdh':$('#lxdh').val(),'sjff.dzyx':' ',
+						'sjff.bmjgmc':$('#bmjgmc').val(),'sjff.bmryxm':' ',
+						'sjff.bmyzbm':' ','sjff.bmlxdh':' ',
+						'sjff.bmxxdz':' ','sjff.bmdzyx':' ',
+						'sjff.zgbmmc':' ','sjff.zgcbks':' ',
+						'sjff.zgyzbm':' ','sjff.zglxdh':' ',
+						'sjff.zgxxdz':' ','sjff.xmly':$('#xmly').val(),
 						'sjff.symd':$('#symd').val(),'sjff.sxsjzlmc':$('#sxsjzlmc').val(),
 						'sjff.zlfwjdjsl':$('#zlfwjdjsl').val(),'sjff.chxzzgbmyj':$('#chxzzgbmyj').val(),
 						'sjff.bz':$('#bz').val(),'sjff.bh':$('#bh').val()};

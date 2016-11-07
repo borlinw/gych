@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>编辑汇交测绘数据</title>
+	<title>添加基础测绘数据</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/easyui/themes/default/easyui.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/easyui/themes/icon.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/autocomplete/jquery.autocomplete.css" />
@@ -19,7 +19,7 @@
 <style type="text/css">
     .addmx
     {
-        text-align: left; background-color: #F1F8FF; width: 10%; padding-right: 5px;
+        text-align: left; background-color: #F1F8FF; width: 8%; padding-right: 5px;
     }
 </style>
 <script type="text/javascript">
@@ -27,7 +27,7 @@ $(function(){
 	var data=parent.obj;
 	$("#whnf").val(data.whnf);
 	$("#whbh").val(data.whbh);
-	$("#hjdw").val(data.hjdw);
+	$("#xmfbdw").val(data.xmfbdw);
 	$("#lxdh").val(data.lxdh);
 	$("#chxmmc").val(data.chxmmc);
 	$("#chxmszd").val(data.chxmszd);
@@ -35,13 +35,13 @@ $(function(){
 	$("#wcsj").val(data.wcsj);
 	$("#zljcysdw").val(data.zljcysdw);
 	$("#jcyssj").val(data.jcyssj);
-	$("#hjchcgfbhmlsl").val(data.hjchcgfbhmlsl);
-	$("#hjchcgfbhmlxxnr").val(data.hjchcgfbhmlxxnr);
-	$("#hjrqm").val(data.hjrqm);
+	$("#xmzycgzlqdjzt").val(data.xmzycgzlqdjzt);
+	$("#xmzycgzlxxnr").val(data.xmzycgzlxxnr);
+	$("#yjrqm").val(data.yjrqm);
 	$("#jsrqm").val(data.jsrqm);
-	$("#hjjsn").val(data.hjjsn);
-	$("#hjjsy").val(data.hjjsy);
-	$("#hjjsr").val(data.hjjsr);
+	$("#yjjsn").val(data.yjjsn);
+	$("#yjjsy").val(data.yjjsy);
+	$("#yjsr").val(data.yjjsr);
 	$("#qzn").val(data.qzn);
 	$("#qzy").val(data.qzy);
 	$("#qzr").val(data.qzr);
@@ -55,46 +55,32 @@ $(function(){
 
 });
 function addmxlb(){
-	var hjch={'hjch.id':parent.obj.id};
+	var jcch={'jcch.id':parent.obj.id};
 	$.ajax({
 		type:'post',
-		url:'/gych/sjjs/selectHjchMx.do',
+		url:'/gych/sjjs/selectJcchMx.do',
 		dataType:'json',
-		data:hjch,
+		data:jcch,
 		success:function(data){
 			var $table= $("#mxtable");
 		    //字符串拼接tr一行中的内容
 		   for( var j=0;j<data.length;j++){
 			   var tr = '<tr style="height: 35px;">';
 			   // for (var i = 0; i < 5; i++) {
-			        tr += "<td class='addmx'><input id='text"+ j + 1 + "' type='text' value='"+data[j].xh+"' style='width: 94px;'/></td>";
-			        tr += "<td class='addmx'><input id='text"+ j + 2 + "' type='text' value='"+data[j].sjlx+"' style='width: 94px;'/></td>";
-			        tr += "<td class='addmx'><input id='text"+ j + 3 + "' type='text' value='"+data[j].sl+"' style='width: 94px;'/></td>";
-			        tr += "<td class='addmx'><input id='text"+ j + 4 + "' type='text' value='"+data[j].zbx+"' style='width: 94px;'/></td>";
-			        tr += "<td class='addmx'><input id='text"+ j + 5 + "' type='text' value='"+data[j].bz+"' style='width: 94px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 1 + "' type='text' value='"+data[j].xh+"' style='width: 78px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 2 + "' type='text' value='"+data[j].sjlx+"' style='width: 78px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 3 + "' type='text' value='"+data[j].sl+"' style='width: 78px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 4 + "' type='text' value='"+data[j].zt+"' style='width: 78px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 5 + "' type='text' value='"+data[j].zbx+"' style='width: 78px;'/></td>";
+			        tr += "<td class='addmx'><input id='text"+ j + 6 + "' type='text' value='"+data[j].bz+"' style='width: 78px;'/></td>";
 			        // }
-			    tr += "<td><input id='Checkbox1' name='ckb' type='checkbox' /> </td></tr>";
+			    tr += "</tr>";
 				$table.append(tr);
 		   }
 		}
 	});
 }
-var row = 0;
-function addmx() {
-	var $table= $("#mxtable");
-	row++;
-    //字符串拼接tr一行中的内容
-   var tr = '<tr style="height: 35px;">';
-    for (var i = 0; i < 5; i++) {
-        tr += "<td class='addmx'><input id='text"+ row + i + "' type='text' value='' style='width: 94px;'/></td>";
-    }
-    tr += "<td><input id='Checkbox1' name='ckb' type='checkbox' /> </td></tr>";
-	$table.append(tr);
-}
-//删除添加的行，先判断checkbox是否选中，然后删除
-function deletemx(){
-     $("input[name=ckb]:checked").each(function () { $(this).parent().parent().remove(); });
- }
+
 </script>
 </head>
 <body>
@@ -105,10 +91,10 @@ function deletemx(){
 				<td><br />
 				   <table width="594px;" border="0" height="20px;">
 						<tr>
-							<td style="vertical-align: middle;text-align: center;">广元市测绘成果汇交凭证</td>
+							<td style="vertical-align: middle;text-align: center;">广元市基础测绘凭证</td>
 						</tr>
 						<tr>
-							<td style="vertical-align: middle;text-align: right;">广测汇凭字（20<input type="text" id="whnf" style="width: 20px;"/>）第<input type="text" id="whbh" style="width: 20px;"/>号</td>
+							<td style="vertical-align: middle;text-align: right;">广测基凭字（20<input type="text" id="whnf" style="width: 20px;"/>）第<input type="text" id="whbh" style="width: 20px;"/>号</td>
 						</tr>
 					</table>
 					<table width="594px;" border="0"
@@ -117,10 +103,10 @@ function deletemx(){
 						<tr style="height: 35px;">
 							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
-									汇交单位：</font></b>
+									项目发包单位：</font></b>
 							</td>
 							<td style="border-left: 1px solid #C0C0C0; border-right: 1px solid #C0C0C0; border-top: 1px none #C0C0C0; border-bottom: 1px solid #C0C0C0; width: 19%; text-align: left; padding-left: 10px; font-size: 12px;">
-								<input  id="hjdw" name="hjdw" type="text"  style="width: 80px;" />&nbsp;
+								<input  id="xmfbdw" name="xmfbdw" type="text"  style="width: 80px;" />&nbsp;
 							</td>
 							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;">
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
@@ -177,7 +163,7 @@ function deletemx(){
 						</tr>
 						<tr style="height: 35px;">
 							<td style="border-style: none none solid none; border-width: 1px; border-color: #C0C0C0; color: #007DB3; font-weight: bold; font-size: small; text-align: left; background-color: #F1F8FF; width: 15%; padding-right: 5px;"colspan="4">
-								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">汇交测绘成果副本或目录数量：</font><input  type="text" id="hjchcgfbhmlsl" name="hjchcgfbhmlsl"></b>
+								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">项目主要成果资料清单及载体：</font><input  type="text" id="xmzycgzlqdjzt" name="xmzycgzlqdjzt"></b>
 							</td>
 							
 						</tr>
@@ -201,22 +187,17 @@ function deletemx(){
 							</td>
 							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
+									载体</font></b>
+							</td>
+							<td >
+								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									坐标系</font></b>
 							</td>
 							<td >
 								<b><font color="#009ACD" style="cursor: hand; font-size: 12px">
 									备注</font></b>
 							</td>
-							<td style=" text-align: center; background-color: #F1F8FF; width: 66px;">
-								<input type="image"  onclick="addmx()"
-								alt="添加"
-								src="${pageContext.request.contextPath}/images/Button/tj.png" style="border-width: 0px;width: 20px;" />
-								&nbsp; 
-								<input type="image"  onclick="deletemx()"
-								alt="删除"
-								src="${pageContext.request.contextPath}/images/Button/sc.png" style="border-width: 0px;width: 20px;" />
-								&nbsp; 
-                            </td>
+						
 							
 						</tr>
 						<!--  <tr style="height: 35px;">
@@ -279,8 +260,8 @@ function deletemx(){
 						<tr style="height: 100px;">
 							<td style="text-align: left;height: 200px;vertical-align: top;"
 							colspan="5">
-								汇交测绘成果副本或目录详细内容：<br/>
-								<textarea name="hjchcgfbhmlxxnr" rows="20" cols="20" id="hjchcgfbhmlxxnr"
+								项目主要成果资料详细内容：<br/>
+								<textarea name="xmzycgzlxxnr" rows="20" cols="20" id="xmzycgzlxxnr"
 						style="border-color: Black; border-width: 1px; border-style: Solid; height: 88%; width: 99%; overflow: auto"></textarea>
 								
 							</td>
@@ -291,68 +272,31 @@ function deletemx(){
 						style="border-style: solid; border border-width: 1px 1px 1px 1px; border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0; height: 120px;"
 						cellspacing="0" cellpadding="0">
 						<tr>
-							<td style="vertical-align: middle;text-align: center;"><span style="text-align: left;">汇交人签名：     &nbsp; &nbsp; &nbsp; &nbsp;接收人签名：</span><br/>
-							<input type="text" id="hjrqm" name="hjrqm"/>             <input type="text"  id="jsrqm" name="jsrqm"/>
-							<br/> <input type="text"  id="hjjsn" name="hjjsn" style="width: 40px;"/>年  <input type="text"  id="hjjsy" name="hjjsy" style="width: 20px;"/>月 <input type="text"  id="hjjsr" name="hjjsr" style="width: 20px;"/> 日</td>
+							<td style="vertical-align: middle;text-align: center;"><span style="text-align: left;">移交人签名：     &nbsp; &nbsp; &nbsp; &nbsp;接收人签名：</span><br/>
+							<input type="text" id="yjrqm" name="yjrqm"/>             <input type="text"  id="jsrqm" name="jsrqm"/>
+							<br/> <input type="text"  id="yjjsn" name="yjjsn" style="width: 40px;"/>年  <input type="text"  id="yjjsy" name="yjjsy" style="width: 20px;"/>月 <input type="text"  id="yjjsr" name="yjjsr" style="width: 20px;"/> 日</td>
 							<td style="vertical-align: middle;text-align: center;">负责接收的测绘行政主管部门<br/>（签章）<br/>
 								<input type="text"  id="qzn" name="qzn" style="width: 40px;"/>年  <input type="text"  id="qzy" name="qzy" style="width: 20px;"/>月 <input type="text"  id="qzr" name="qzr" style="width: 20px;"/> 日</td>
 							</td>
 						</tr>
 						
 					</table>
-					 注：本凭证一式两份。汇交单位一份，接收单位一份。                       广元市测绘地理信息局  制
+					 注：本凭证一式两份。移交单位一份，接收单位一份。                       广元市测绘地理信息局  制
 					<table width="100%" border="0"
 						style=" margin-top: 20px; height: 45px;"
 						cellspacing="0" cellpadding="0">
 						<tr style="height: 30px;">
 							<td align="center">
-								<input type="image" name="btnAdd" id="btnAdd" onclick="addZjxd()"
-								onmouseover="this.src='${pageContext.request.contextPath}/images/Button/baocun2.gif'" alt="保存"
-								onmouseout="this.src='${pageContext.request.contextPath}/images/Button/baocun1.gif'"
-								src="${pageContext.request.contextPath}/images/Button/baocun1.gif" style="border-width: 0px;" />
-								&nbsp; 
+								
 								<input type="image" name="btnCancel" id="btnCancel" onmouseover="this.src='${pageContext.request.contextPath}/images/Button/fanhui2.GIF'" alt="返回"
-								onclick="parent.$('#hjch_update_win').window('destroy');" onmouseout="this.src='${pageContext.request.contextPath}/images/Button/fanhui1.GIF'"
+								onclick="parent.$('#jcch_xq_win').window('destroy');" onmouseout="this.src='${pageContext.request.contextPath}/images/Button/fanhui1.GIF'"
 								src="${pageContext.request.contextPath}/images/Button/fanhui1.GIF" style="border-width: 0px;" />
 							</td>
 						</tr>
 					</table></td>
 			</tr>
 		</table>
-		<script type="text/javascript">
-		    var mxstr="";
-			function addZjxd(){
-				if($('input[name="wcsj"]').val()==""){
-					alert("完成时间不能为空！");
-					return;
-				}
-				$('#mxtable input').each(function () {
-					mxstr += $(this).val() + ",";
-		         });
-				var hjch={'hjch.id':parent.obj.id,'hjch.whnf':$('#whnf').val(),'hjch.whbh':$('#whbh').val(),
-						'hjch.hjdw':$("#hjdw").val(),'hjch.lxdh':$('#lxdh').val() ,
-						'hjch.chxmmc':$('#chxmmc').val(),'hjch.chxmszd':$("#chxmszd").val(),
-						'hjch.scdw':$('#scdw').val(),'hjch.wcsj':$('input[name="wcsj"]').val(),
-						'hjch.zljcysdw':$('#zljcysdw').val(),'hjch.jcyssj':$('input[name="jcyssj"]').val(),
-						'hjch.hjchcgfbhmlsl':$('#hjchcgfbhmlsl').val(),'hjch.hjchcgfbhmlxxnr':$('#hjchcgfbhmlxxnr').val(),
-						'hjch.mxstr':mxstr,'hjch.hjrqm':$('#hjrqm').val(),
-						'hjch.jsrqm':$('#jsrqm').val(),'hjch.hjjsn':$('#hjjsn').val(),
-						'hjch.hjjsy':$('#hjjsy').val(),'hjch.hjjsr':$('#hjjsr').val(),
-						'hjch.qzn':$('#qzn').val(),'hjch.qzy':$('#qzy').val(),
-						'hjch.qzr':$('#qzr').val()};
-				$.ajax({
-					type:'post',
-					url:'/gych/sjjs/updateHjch.do',
-					dataType:'json',
-					data:hjch,
-					success:function(data){
-						alert("保存成功！");
-						parent.startSearch();
-						parent.$('#hjch_update_win').window('destroy');
-					}
-				});
-			}
-		</script>
+		
 	</center>
 </body>
 </html>

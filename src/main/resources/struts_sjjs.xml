@@ -9,7 +9,14 @@
 	<action name="updateHjch" class="sjjsController" method="updateHjch"/>
 	<action name="deleteHjch" class="sjjsController" method="deleteHjch"/>
 	<action name="hjchDownDoc" class="sjjsController" method="hjchDownDoc"/>
+	<action name="selectHjchMx" class="sjjsController" method="selectHjchMx"/>
 	
-
+	
+	<action name="selectJcchList" class="sjjsController" method="selectJcchList"/>
+	<action name="insertJcch" class="sjjsController" method="insertJcch"/>
+	<action name="updateJcch" class="sjjsController" method="updateJcch"/>
+	<action name="deleteJcch" class="sjjsController" method="deleteJcch"/>
+	<action name="jcchDownDoc" class="sjjsController" method="jcchDownDoc"/>
+	<action name="selectJcchMx" class="sjjsController" method="selectJcchMx"/>
  </package>
 </struts>

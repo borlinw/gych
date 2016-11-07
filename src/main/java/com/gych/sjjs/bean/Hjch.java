@@ -50,7 +50,8 @@ public class Hjch implements Serializable {
 	private String qzn;
 	private String qzy;
 	private String qzr;
-	
+	private HjchMx hjchMxs;
+	private String mxstr;
 	public String getId() {
 		return id;
 	}
@@ -309,6 +310,18 @@ public class Hjch implements Serializable {
 	}
 	public void setHjwh(String hjwh) {
 		this.hjwh = hjwh;
+	}
+	public HjchMx getHjchMxs() {
+		return hjchMxs;
+	}
+	public void setHjchMxs(HjchMx hjchMxs) {
+		this.hjchMxs = hjchMxs;
+	}
+	public String getMxstr() {
+		return mxstr;
+	}
+	public void setMxstr(String mxstr) {
+		this.mxstr = mxstr;
 	}
 	
 }
