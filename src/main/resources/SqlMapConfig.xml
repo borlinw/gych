@@ -15,7 +15,7 @@
 	 <typeAlias type="com.gych.sjjs.bean.HjchMx" alias="hjchMx"/>
 	 <typeAlias type="com.gych.sjjs.bean.Jcch" alias="jcch"/>
 	 <typeAlias type="com.gych.sjjs.bean.JcchMx" alias="jcchMx"/>
- 
+ 	 <typeAlias type="com.gych.sjjs.bean.Cgba" alias="cgba"/>
   </typeAliases>
   <environments default="jdbc">
      <environment id="jdbc">
@@ -46,6 +46,7 @@
      <mapper resource="com/gych/xtgl/config/xtgl.xml"/>
      <mapper resource="com/gych/sjjs/config/sjjs.xml"/>
      <mapper resource="com/gych/sjjs/config/sjff.xml"/>
+     <mapper resource="com/gych/sjjs/config/cgba.xml"/>
 
   </mappers>
 </configuration>

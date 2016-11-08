@@ -10,94 +10,49 @@ public class Cgba implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;
-	private String fbsj;
-	private String fbr;
-	private String wjmc;
-	private String wjgy;
-	private String jsdw;
-	private String fbdw;
-	
-	private String wjid;
-	private byte[] wjfile;
-	private String wjname;
+	private String scsj;
+	private String xmmc;
+	private String gsmc;
 	private String fileurl;
-
+	private String bar;
+	private String bmjbr;
+	private String cgzlbh;
 	private int page;
 	private int rows;
 	private String kssj;
 	private String jssj;
-	
-	public String getKssj() {
-		return kssj;
-	}
-	public void setKssj(String kssj) {
-		this.kssj = kssj;
-	}
-	public String getJssj() {
-		return jssj;
-	}
-	public void setJssj(String jssj) {
-		this.jssj = jssj;
-	}
+	private String nf;
+	private String url;
+	private String wjlx;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getFbsj() {
-		return fbsj;
+	public String getScsj() {
+		return scsj;
 	}
-	public void setFbsj(String fbsj) {
-		this.fbsj = fbsj;
+	public void setScsj(String scsj) {
+		this.scsj = scsj;
 	}
-	public String getFbr() {
-		return fbr;
+	public String getXmmc() {
+		return xmmc;
 	}
-	public void setFbr(String fbr) {
-		this.fbr = fbr;
+	public void setXmmc(String xmmc) {
+		this.xmmc = xmmc;
 	}
-	public String getWjmc() {
-		return wjmc;
+	public String getGsmc() {
+		return gsmc;
 	}
-	public void setWjmc(String wjmc) {
-		this.wjmc = wjmc;
+	public void setGsmc(String gsmc) {
+		this.gsmc = gsmc;
 	}
-	public String getWjgy() {
-		return wjgy;
+	public String getFileurl() {
+		return fileurl;
 	}
-	public void setWjgy(String wjgy) {
-		this.wjgy = wjgy;
-	}
-	public String getJsdw() {
-		return jsdw;
-	}
-	public void setJsdw(String jsdw) {
-		this.jsdw = jsdw;
-	}
-	public String getFbdw() {
-		return fbdw;
-	}
-	public void setFbdw(String fbdw) {
-		this.fbdw = fbdw;
-	}
-	public String getWjid() {
-		return wjid;
-	}
-	public void setWjid(String wjid) {
-		this.wjid = wjid;
-	}
-	public byte[] getWjfile() {
-		return wjfile;
-	}
-	public void setWjfile(byte[] wjfile) {
-		this.wjfile = wjfile;
-	}
-	public String getWjname() {
-		return wjname;
-	}
-	public void setWjname(String wjname) {
-		this.wjname = wjname;
+	public void setFileurl(String fileurl) {
+		this.fileurl = fileurl;
 	}
 	public int getPage() {
 		return page;
@@ -111,12 +66,53 @@ public class Cgba implements Serializable {
 	public void setRows(int rows) {
 		this.rows = rows;
 	}
-	public String getFileurl() {
-		return fileurl;
+	public String getKssj() {
+		return kssj;
 	}
-	public void setFileurl(String fileurl) {
-		this.fileurl = fileurl;
+	public void setKssj(String kssj) {
+		this.kssj = kssj;
+	}
+	public String getJssj() {
+		return jssj;
+	}
+	public void setJssj(String jssj) {
+		this.jssj = jssj;
+	}
+	public String getNf() {
+		return nf;
+	}
+	public void setNf(String nf) {
+		this.nf = nf;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getWjlx() {
+		return wjlx;
+	}
+	public void setWjlx(String wjlx) {
+		this.wjlx = wjlx;
+	}
+	public String getBar() {
+		return bar;
+	}
+	public void setBar(String bar) {
+		this.bar = bar;
+	}
+	public String getBmjbr() {
+		return bmjbr;
+	}
+	public void setBmjbr(String bmjbr) {
+		this.bmjbr = bmjbr;
+	}
+	public String getCgzlbh() {
+		return cgzlbh;
+	}
+	public void setCgzlbh(String cgzlbh) {
+		this.cgzlbh = cgzlbh;
 	}
 	
-
 }

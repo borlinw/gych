@@ -94,16 +94,23 @@
 			    	xmmc:xmmc
 				},
 			    columns:[[
-			        {field:'c',title:'操作',width:165,align:'center',formatter:function(value,row,index){
-			        	//alert($.cookie("unit")+"---"+row.fbdw);
-			        	if($.cookie("unit").substr(0,row.fbdw.length)==row.fbdw)
-			        		//+'<a style="text-decoration:none;color:#3399CC;" href="#" onclick="editwj('+index+')">编辑</a>        '
-			        	return '<a style="text-decoration:none;color:#3399CC;" href="#" onclick="ckwj('+index+')">查看</a>    '+'<a style="text-decoration:none;color:#3399CC;" href="#" onclick="deletewj('+index+')">删除</a>        ';
-			        	else	 return '<a style="text-decoration:none;color:#3399CC;" href="#" onclick="ckwj('+index+')">查看</a>    ';
+			        {field:'c',title:'操作',width:100,align:'center',formatter:function(value,row,index){
+			        	return '<a style="text-decoration:none;color:#3399CC;" href="#" onclick="editwj('+index+')">编辑</a>| '+
+			        	'<a  style="text-decoration:none;color:#3399CC;" href="/gych/sjjs/downWjFile.do?cgba.xmmc='+row.xmmc
+		        		+'&cgba.wjlx='+row.wjlx+ '&cgba.url='+row.url+'">查看</a>| '
+		        		+'<a style="text-decoration:none;color:#3399CC;" href="#" onclick="deletewj('+index+')">删除</a>';
+			        	
+		        		//'<a style="text-decoration:none;color:#3399CC;" href="#" onclick="ckwj('+index+')">查看</a>    ';
+			        	//else	 return '<a style="text-decoration:none;color:#3399CC;" href="#" onclick="ckwj('+index+')">查看</a>    ';
 			        }},
-			        {field:'xmmc',title:'项目名称',width:265,align:'center'},
-			        {field:'gsmc',title:'公司名称',width:165,align:'center'},
-			        {field:'scsj',title:'上传时间',width:111,align:'center'}
+			        {field:'xmmc',title:'项目名称',width:250,align:'center'},
+			        {field:'gsmc',title:'公司名称',width:250,align:'center'},
+			        {field:'nf',title:'备案时间',width:111,align:'center'},
+			        {field:'wjlx',title:'文件类型',width:80,align:'center'},
+			        {field:'bar',title:'备案人',width:90,align:'center'},
+			        {field:'bmjbr',title:'部门经办人',width:90,align:'center'},
+			        {field:'cgzlbh',title:'成果资料编号',width:111,align:'center'}/* ,
+			        {field:'url',title:'存放位置',width:111,align:'center'} */
 			    ]]    
 			}); 
 		}
@@ -115,7 +122,7 @@
 				title : '成果备案添加',
 				page : 'cgba_add.jsp?url='+"/gych/sjjs/uploadWjFile.do"+'&flag=cgba.jsp'+'&id='+new Date().getTime(),
 				width : 570,
-				height : 400,
+				height : 500,
 				top : 0,
 				rang : true,
 				resize : false,
@@ -149,7 +156,7 @@
 			$.ajax({
 				type:'post',
 				url:'/gych/sjjs/deleteCgba.do',
-				data:"cgba.id="+data.id+"&cgba.wjid="+data.id,
+				data:"cgba.id="+data.id+"&cgba.xmmc="+data.xmmc+"&cgba.wjlx="+data.wjlx+"&cgba.url="+data.url,
 				dataType:'json',
 				async:false,
 				success:function(msg){
@@ -168,7 +175,7 @@
 		function ckwj(index){
 			var data=$("#datagrid").datagrid('getRows')[index];
 			obj=data;
-			YMLib.UI.createWindow('cgba','成果备案详情','cgba_ck.jsp','cgba',730,300);
+			YMLib.UI.createWindow('cgba_ck','成果备案详情','cgba_ck.jsp','cgba_ck',580,350);
 		}
 	</script>
 	<style type="text/css">
@@ -207,7 +214,7 @@ a:active {
         				</legend>
         				<div>
         					<p style="margin: 1% 0px 1% 2%;">
-        						<span>发布时间：</span>
+        						<span>上传时间：</span>
         							<input type="text" id="kssj" >
         							<span>至</span>
         							<input type="text" id="jssj" >
